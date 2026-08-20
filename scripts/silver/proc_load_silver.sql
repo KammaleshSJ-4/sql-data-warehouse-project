@@ -1,6 +1,6 @@
 -- TABLE crm_cust_info 
 
-
+TRUNCATE TABLE silver.crm_cust_info; 
 INSERT INTO silver.crm_cust_info (
        [cst_id]
       ,[cst_key]
@@ -54,6 +54,7 @@ CREATE TABLE silver.crm_prd_info (
 );
 
 -- Inserting into the table
+TRUNCATE TABLE silver.crm_prd_info; 
 INSERT INTO silver.crm_prd_info (
 	prd_id,
 	cat_id,
@@ -108,6 +109,8 @@ CREATE TABLE silver.crm_sales_details (
 );
 
 -- Insrting the values 
+
+TRUNCATE TABLE silver.crm_sales_details; 
 INSERT INTO silver.crm_sales_details (
 		sls_ord_num,
 		sls_prd_key,
@@ -152,7 +155,7 @@ SELECT * FROM silver.crm_sales_details;
 
 
 -- erp_cust_az12 Table
-
+TRUNCATE TABLE silver.erp_cust_az12;
 INSERT INTO silver.erp_cust_az12 (
 	cid,
 	bdate,
@@ -181,7 +184,7 @@ SELECT * FROM silver.erp_cust_az12;
 
 -- erp_loc_a101 table
 
-
+TRUNCATE TABLE silver.erp_loc_a101;
 INSERT INTO silver.erp_loc_a101 (
 	cid,
 	cntry
@@ -198,3 +201,20 @@ FROM bronze.erp_loc_a101
 
 SELECT * from silver.erp_loc_a101
 
+-- erp_px_cat_g1v2 table
+TRUNCATE TABLE silver.erp_px_cat_g1v2;
+INSERT INTO silver.erp_px_cat_g1v2
+(
+	id,
+	cat,
+	subcat,
+	maintenance
+)
+SELECT
+	id,
+	cat,
+	subcat,
+	maintenance
+FROM bronze.erp_px_cat_g1v2;
+
+SELECT * FROM silver.erp_px_cat_g1v2
