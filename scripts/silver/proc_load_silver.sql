@@ -177,3 +177,24 @@ SELECT												-- Remove unwanted characters
 FROM bronze.erp_cust_az12
 
 SELECT * FROM silver.erp_cust_az12;
+
+
+-- erp_loc_a101 table
+
+
+INSERT INTO silver.erp_loc_a101 (
+	cid,
+	cntry
+)
+SELECT
+	REPLACE(cid,'-','') AS cid,
+	CASE														-- Standardization
+		WHEN TRIM(cntry) IN ('DE','Germany') THEN 'Germany'
+		WHEN TRIM(cntry) IN ('USA','United States') THEN 'United States'
+		WHEN TRIM(cntry) LIKE '' OR TRIM(cntry) IS NULL THEN 'n/a'
+		ELSE TRIM(cntry)
+	END AS cntry
+FROM bronze.erp_loc_a101
+
+SELECT * from silver.erp_loc_a101
+
