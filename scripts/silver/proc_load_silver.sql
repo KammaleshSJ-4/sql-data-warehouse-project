@@ -149,3 +149,31 @@ SELECT
 FROM bronze.crm_sales_details;
 
 SELECT * FROM silver.crm_sales_details;
+
+
+-- erp_cust_az12 Table
+
+INSERT INTO silver.erp_cust_az12 (
+	cid,
+	bdate,
+	gen
+)
+SELECT												-- Remove unwanted characters
+	CASE 
+		WHEN cid LIKE '%NAS%'
+			THEN SUBSTRING(cid,4,LEN(cid))
+		ELSE cid
+	END AS cid,
+	CASE											-- Remove invalid birth day
+		WHEN bdate > GETDATE()
+			THEN NULL
+		ELSE bdate
+	END AS bdate,
+	CASE											-- Standardization of gender
+		WHEN gen LIKE 'F' THEN 'Female'
+		WHEN gen LIKE 'M' THEN 'Male'
+		ELSE 'n/a'
+	END as gen
+FROM bronze.erp_cust_az12
+
+SELECT * FROM silver.erp_cust_az12;
