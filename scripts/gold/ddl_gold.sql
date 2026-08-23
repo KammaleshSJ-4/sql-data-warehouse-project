@@ -28,7 +28,7 @@ SELECT
 	ROW_NUMBER() OVER(ORDER BY pi.prd_start_dt,pi.prd_key) AS product_key,
 	pi.prd_id AS product_id,
 	pi.prd_key AS product_number,
-	pi.prd_nm AS produuct_name,
+	pi.prd_nm AS product_name,
 	pi.cat_id AS category_id,
 	pe.cat AS category,
 	pe.subcat AS subcategory,
