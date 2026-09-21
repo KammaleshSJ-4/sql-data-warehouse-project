@@ -281,20 +281,6 @@ Being explicit about trade-offs:
 
 **Possible next steps:** incremental loads with a watermark, SCD Type 2, a date dimension, automated tests in CI (GitHub Actions with a SQL Server container), and a BI dashboard on top of the Gold layer.
 
----
-
-## What I Learned
-
-> **[TODO]** Write this in your own words, 3 to 5 bullets. Interviewers use this section to start conversations. Prompts:
-> - What went wrong while building it, and how did you debug it?
-> - Which design decision would you change now, and why?
-> - What did the data quality issues teach you about source systems?
-
----
-
-## Acknowledgements
-
-**[TODO]** If you followed a course or tutorial, or used a public dataset, credit it here in one line. Being upfront builds trust, and your own extensions (listed under Design Decisions) then stand out clearly.
 
 ---
 
